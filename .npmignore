@@ -1,0 +1,6 @@
+# Ignore source code and other folders
+src/
+cjs/
+
+# Ignore config files
+*.config.js

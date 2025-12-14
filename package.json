@@ -20,7 +20,11 @@
     "bikram-sambat",
     "gregorian",
     "calendar",
-    "nepal"
+    "nepali-date",
+    "nepali-calendar",
+    "bs-ad",
+    "bs-to-ad",
+    "ad-to-bs"
   ],
   "author": "Nischal Dhakal",
   "license": "MIT"

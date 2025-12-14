@@ -1,5 +1,5 @@
-const { adToBs } = require("./converters/adToBs");
-const { bsToAd } = require("./converters/bsToAd");
-const { calendarData } = require("./data/calendarData");
+import { adToBs } from "./converters/adToBs.js";
+import { bsToAd } from "./converters/bsToAd.js";
+import { calendarData } from "./data/calendarData.js";
 
-module.exports = { bsToAd, adToBs, calendarData };
+export { bsToAd, adToBs, calendarData };

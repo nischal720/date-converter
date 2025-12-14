@@ -1,14 +1,15 @@
-const {
+import {
   calendarData,
   REFERENCE_BS,
-  REFERENCE_AD,
-} = require("../data/calendarData.js");
-const { isValidAdDate } = require("../utils/validators.js");
-const {
+  REFERENCE_AD
+} from "../data/calendarData.js";
+
+import { isValidAdDate } from "../utils/validators.js";
+import {
   parseDateString,
   formatDate,
-  daysBetweenAdDates,
-} = require("../utils/dateUtils.js");
+  daysBetweenAdDates
+} from "../utils/dateUtils.js";
 
 // Convert AD to BS (input and output as YYYY-MM-DD)
 function adToBs(adDateStr) {
@@ -84,8 +85,8 @@ function adToBs(adDateStr) {
   return formatDate({
     year: currentYear,
     month: currentMonth,
-    day: currentDay,
+    day: currentDay
   });
 }
 
-module.exports = { adToBs };
+export { adToBs };

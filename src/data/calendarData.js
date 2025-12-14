@@ -1,4 +1,4 @@
-//Date from 1970 to 2099
+// Date from 1970 to 2099
 const calendarData = {
   1970: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30, 365],
   1971: [31, 31, 32, 31, 32, 30, 30, 29, 30, 29, 30, 30, 365],
@@ -129,10 +129,11 @@ const calendarData = {
   2096: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31, 366],
   2097: [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30, 365],
   2098: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30, 365],
-  2099: [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30, 365],
+  2099: [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30, 365]
 };
 
-//Reference dates
+// Reference dates
 const REFERENCE_BS = { year: 1970, month: 1, day: 1 };
-const REFERENCE_AD = new Date(1913, 3, 13); //April is month 3 (0-based)
-module.exports = { calendarData, REFERENCE_BS, REFERENCE_AD };
+const REFERENCE_AD = new Date(1913, 3, 13); // April is month 3 (0-based)
+
+export { calendarData, REFERENCE_BS, REFERENCE_AD };

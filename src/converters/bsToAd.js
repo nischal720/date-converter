@@ -1,7 +1,11 @@
-const { REFERENCE_BS, REFERENCE_AD, calendarData } = require("../data/calendarData");
-const { parseDateString, formatDate } = require("../utils/dateUtils");
-const { isValidBsDate } = require("../utils/validators");
+import {
+  REFERENCE_BS,
+  REFERENCE_AD,
+  calendarData
+} from "../data/calendarData.js";
 
+import { parseDateString, formatDate } from "../utils/dateUtils.js";
+import { isValidBsDate } from "../utils/validators.js";
 
 // Calculate total BS days from REFERENCE_BS to input BS date
 function bsDaysSinceReference(bsYear, bsMonth, bsDay) {
@@ -9,9 +13,10 @@ function bsDaysSinceReference(bsYear, bsMonth, bsDay) {
 
   // Years
   for (let year = REFERENCE_BS.year; year < bsYear; year++) {
-    if (!calendarData?.[year])
+    if (!calendarData?.[year]) {
       throw new Error(`Year ${year} not in calendar data`);
-    totalDays += calendarData?.[year][12]; // Total days in year
+    }
+    totalDays += calendarData[year][12]; // Total days in year
   }
 
   // Months
@@ -43,7 +48,8 @@ function bsToAd(bsDateStr) {
   return formatDate({
     year: resultDate.getFullYear(),
     month: resultDate.getMonth() + 1, // 1-based
-    day: resultDate.getDate(),
+    day: resultDate.getDate()
   });
 }
-module.exports = { bsToAd };
+
+export { bsToAd };

@@ -1,4 +1,4 @@
-const { calendarData } = require("../data/calendarData");
+import { calendarData } from "../data/calendarData.js";
 
 // Validate BS date
 function isValidBsDate(year, month, day) {
@@ -17,4 +17,5 @@ function isValidAdDate(year, month, day) {
     date.getDate() === day
   );
 }
-module.exports = { isValidBsDate, isValidAdDate };
+
+export { isValidBsDate, isValidAdDate };

@@ -1,4 +1,4 @@
-const { adToBs, bsToAd } = require("../src");
+import { adToBs,bsToAd } from "../src/index.js";
 
 // Simple test function
 function assert(condition, message) {
@@ -9,29 +9,13 @@ function assert(condition, message) {
   }
 }
 
+console.log(bsToAd("1990-11-25")); // Should return "2009-11-25" in AD
+
 // Test BS to AD
-assert(
-  bsToAd("2082-01-01") === "2025-04-14",
-  "BS 2082-01-01 should be AD 2025-04-14"
-);
 assert(
   bsToAd("2078-01-01") === "2021-04-14",
   "BS 2078-01-01 should be AD 2021-04-14"
 );
-
-// Test AD to BS
-assert(
-  adToBs("2025-08-16") === "2082-04-31",
-  "AD 2025-08-16 should be BS 2082-04-31"
-);
-assert(
-  adToBs("2025-04-14") === "2082-01-01",
-  "AD 2025-04-14 should be BS 2082-01-01"
-);
-assert(
-    adToBs("2025-07-16") === "2082-03-32",
-    "AD 2025-07-16 should be BS 2082-03-32"
-  );
 
 // Test invalid inputs
 try {

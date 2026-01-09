@@ -1,6 +1,16 @@
 # BS-AD Date Converter
 
-A JavaScript package to convert dates between the Bikram Sambat (BS) and Gregorian (AD) calendars. Supports dates in `YYYY-MM-DD` format. Compatible with Node.js >=16.
+A versatile JavaScript/TypeScript package to convert dates between Bikram Sambat (BS) and Gregorian (AD) calendars, along with utilities for age calculation, date difference, and getting current dates. Supports dates in `YYYY-MM-DD` format.
+
+## Features
+
+-   **Date Conversion**: Convert AD to BS and BS to AD.
+-   **TypeScript Support**: Fully written in TypeScript with type definitions included.
+-   **Date Utilities**:
+    -   Calculate age in years, months, and days.
+    -   Find the difference between two dates.
+    -   Get the current date in both AD and BS formats.
+-   **Validation**: Robust validation for dates within the supported range.
 
 ## Installation
 
@@ -10,45 +20,90 @@ npm install bs-ad-date-converter
 
 ## Usage
 
-### ESM (import)
+### Import
 
-```js
-import { bsToAd, adToBs } from 'bs-ad-date-converter';
-
-const adDate = bsToAd('2078-01-01');
-console.log(adDate); // Output: 2021-04-14
-
-const bsDate = adToBs('2021-04-14');
-console.log(bsDate); // Output: 2078-01-01
+```typescript
+import { 
+  bsToAd, 
+  adToBs, 
+  ageCalculater, 
+  dateDifference, 
+  getTodayDate 
+} from 'bs-ad-date-converter';
 ```
 
-### CommonJS (require)
+### Date Conversion
 
-```js
-const { bsToAd, adToBs } = require('bs-ad-date-converter');
+#### Convert BS to AD
 
+```typescript
 const adDate = bsToAd('2078-01-01');
-console.log(adDate); // Output: 2021-04-14
-
-const bsDate = adToBs('2021-04-14');
-console.log(bsDate); // Output: 2078-01-01
+console.log(adDate); // Output: "2021-04-14"
 ```
 
-## API
+#### Convert AD to BS
 
-### bsToAd(bsDateStr)
+```typescript
+const bsDate = adToBs('2021-04-14');
+console.log(bsDate); // Output: "2078-01-01"
+```
 
-* Converts a BS date to an AD date.
-* Input: string in `YYYY-MM-DD` format.
-* Output: string in `YYYY-MM-DD` format (AD date).
-* Throws an error if the BS date is invalid.
+### Utilities
 
-### adToBs(adDateStr)
+#### Get Current Date
 
-* Converts an AD date to a BS date.
-* Input: string in `YYYY-MM-DD` format.
-* Output: string in `YYYY-MM-DD` format (BS date).
-* Throws an error if the AD date is invalid or before the reference date (1943-04-14).
+Returns the current date in both AD and BS formats.
+
+```typescript
+const { todayAdDate, todayBSDate } = getTodayDate();
+console.log(`Today: ${todayBSDate} (BS) / ${todayAdDate} (AD)`);
+```
+
+#### Calculate Age
+
+Calculate age from a birth date. You can specify the input date type ('AD' or 'BS').
+
+```typescript
+// From AD DOB
+const ageAD = ageCalculater('2000-01-01', 'AD');
+console.log(ageAD); 
+// Output: { years: 25, months: 0, days: 8 } (results vary based on current date)
+
+// From BS DOB
+const ageBS = ageCalculater('2056-09-17', 'BS');
+console.log(ageBS);
+```
+
+#### Date Difference
+
+Calculate the number of days between two dates. Both dates must be of the same type ('AD' or 'BS').
+
+```typescript
+// Difference between two AD dates
+const diffAD = dateDifference('2022-01-01', '2022-01-10', 'AD');
+console.log(diffAD); // Output: 9
+
+// Difference between two BS dates
+const diffBS = dateDifference('2078-01-01', '2078-01-10', 'BS');
+console.log(diffBS); // Output: 9
+```
+
+## API Reference
+
+### `bsToAd(bsDateStr: string): string`
+Converts a BS date string (`YYYY-MM-DD`) to AD. Throws an error if invalid.
+
+### `adToBs(adDateStr: string): string`
+Converts an AD date string (`YYYY-MM-DD`) to BS. Throws an error if invalid or out of range.
+
+### `getTodayDate(): { todayAdDate: string, todayBSDate: string }`
+Returns the current system date converted to both AD and BS strings.
+
+### `ageCalculater(date: string, dateType: 'AD' | 'BS'): { years: number, months: number, days: number }`
+Calculates the age based on the provided date of birth. defaults `dateType` to 'AD'.
+
+### `dateDifference(date1: string, date2: string, dateType: 'AD' | 'BS'): number`
+Calculates the absolute difference in days between `date1` and `date2`. defaults `dateType` to 'AD'.
 
 ## Supported Date Range
 
@@ -59,20 +114,20 @@ console.log(bsDate); // Output: 2078-01-01
 
 ## Error Handling
 
-```js
+Errors are thrown for invalid formats or dates outside the supported range.
+
+```typescript
 try {
   bsToAd('2100-01-01');
 } catch (e) {
-  console.error(e.message); // "Invalid BS date"
-}
-
-try {
-  adToBs('1900-01-01');
-} catch (e) {
-  console.error(e.message); // "AD date is before reference date (1943-04-14)"
+  console.error(e.message); // "Invalid BS date" or range error
 }
 ```
 
 ## License
 
 MIT © Nischal Dhakal
+
+## Author
+
+-   **Nischal Dhakal** - [GitHub](https://github.com/nischal720)

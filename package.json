@@ -1,6 +1,6 @@
 {
   "name": "bs-ad-date-converter",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "BS-AD Date Converter",
   "main": "dist/index.js",
   "exports": {

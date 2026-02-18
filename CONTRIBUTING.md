@@ -28,7 +28,7 @@ If you have an idea for a new feature or improvement, feel free to open an issue
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/nischal720/bs-ad-date-converter.git
+   git clone https://github.com/nischal720/date-converter.git
    ```
 2. Install dependencies:
    ```bash

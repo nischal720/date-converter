@@ -1,13 +1,21 @@
 {
   "name": "bs-ad-date-converter",
   "version": "3.0.1",
-  "description": "A JavaScript package to convert dates between Bikram Sambat (BS) and Gregorian (AD) calendars.",
-  "main": "./dist/index.js",
+  "description": "BS-AD Date Converter",
+  "main": "dist/index.js",
   "exports": {
     "require": "./dist/index.js",
     "import": "./dist/index.js"
   },
-  "types": "./dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nischal720/date-converter.git"
+  },
+  "homepage": "https://github.com/nischal720/date-converter#readme",
+  "bugs": {
+    "url": "https://github.com/nischal720/date-converter/issues"
+  },
   "engines": {
     "node": ">=16"
   },
